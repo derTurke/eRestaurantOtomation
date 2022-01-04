@@ -11,7 +11,7 @@ import SwiftUI
 struct eRestaurant_TezApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }

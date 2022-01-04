@@ -7,18 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1727DE277CD19C00EC0AF3 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1727DB277CD19C00EC0AF3 /* Poppins-SemiBold.ttf */; };
+		3F1727DF277CD19C00EC0AF3 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1727DC277CD19C00EC0AF3 /* Poppins-Bold.ttf */; };
+		3F1727E0277CD19C00EC0AF3 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1727DD277CD19C00EC0AF3 /* Poppins-Regular.ttf */; };
+		3F1727E3277CD9C900EC0AF3 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727E2277CD9C900EC0AF3 /* AuthModel.swift */; };
+		3F1727E5277CD9D300EC0AF3 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727E4277CD9D300EC0AF3 /* AuthViewModel.swift */; };
+		3F1727E7277CDAAB00EC0AF3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727E6277CDAAB00EC0AF3 /* LoginView.swift */; };
+		3F1727E9277CED6300EC0AF3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727E8277CED6300EC0AF3 /* RegisterView.swift */; };
+		3F1727EB277CF1FD00EC0AF3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727EA277CF1FD00EC0AF3 /* MainView.swift */; };
+		3F1727ED277CF20600EC0AF3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727EC277CF20600EC0AF3 /* MainViewModel.swift */; };
+		3F1727F1277CFA9B00EC0AF3 /* CustomCurveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727F0277CFA9B00EC0AF3 /* CustomCurveShape.swift */; };
+		3F1727F4277CFE8400EC0AF3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727F3277CFE8400EC0AF3 /* HomeView.swift */; };
+		3F1727F6277D049400EC0AF3 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727F5277D049400EC0AF3 /* ProductModel.swift */; };
+		3F1727F8277D04CB00EC0AF3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727F7277D04CB00EC0AF3 /* HomeViewModel.swift */; };
+		3F1727FA277D165600EC0AF3 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1727F9277D165600EC0AF3 /* PersonView.swift */; };
 		3F1D399F277CCA5F00E75D81 /* eRestaurant_TezApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D399E277CCA5F00E75D81 /* eRestaurant_TezApp.swift */; };
 		3F1D39A1277CCA5F00E75D81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D39A0277CCA5F00E75D81 /* ContentView.swift */; };
 		3F1D39A3277CCA6000E75D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D39A2277CCA6000E75D81 /* Assets.xcassets */; };
 		3F1D39A6277CCA6000E75D81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F1D39A5277CCA6000E75D81 /* Preview Assets.xcassets */; };
+		3F1D39B3277CCF6200E75D81 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D39B2277CCF6200E75D81 /* CustomCorners.swift */; };
+		3F58B055277E24970064A247 /* FaqInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B054277E24970064A247 /* FaqInformation.swift */; };
+		3F58B057277F12300064A247 /* PasswordInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B056277F12300064A247 /* PasswordInformation.swift */; };
+		3F58B059277F20D30064A247 /* PrivacyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B058277F20D30064A247 /* PrivacyInformation.swift */; };
+		3F58B05B277F23E50064A247 /* HelpdeskInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B05A277F23E50064A247 /* HelpdeskInformation.swift */; };
+		3F58B05D277F24F80064A247 /* AboutUsInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B05C277F24F80064A247 /* AboutUsInformation.swift */; };
+		3F58B05F277F30770064A247 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B05E277F30770064A247 /* Webservice.swift */; };
+		3F58B063277F37A50064A247 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B062277F37A50064A247 /* WelcomeView.swift */; };
+		3FF98E7E277D9FA7003935A4 /* PersonelInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF98E7D277D9FA7003935A4 /* PersonelInformation.swift */; };
+		3FF98E80277DA2B2003935A4 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF98E7F277DA2B2003935A4 /* PersonViewModel.swift */; };
+		3FF98E82277DAB24003935A4 /* AddressInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF98E81277DAB24003935A4 /* AddressInformation.swift */; };
+		3FF98E84277DB142003935A4 /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF98E83277DB142003935A4 /* PersonModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F1727DB277CD19C00EC0AF3 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../Downloads/Poppins/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		3F1727DC277CD19C00EC0AF3 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../Downloads/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		3F1727DD277CD19C00EC0AF3 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		3F1727E1277CD1CA00EC0AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3F1727E2277CD9C900EC0AF3 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		3F1727E4277CD9D300EC0AF3 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		3F1727E6277CDAAB00EC0AF3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3F1727E8277CED6300EC0AF3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3F1727EA277CF1FD00EC0AF3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3F1727EC277CF20600EC0AF3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		3F1727F0277CFA9B00EC0AF3 /* CustomCurveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurveShape.swift; sourceTree = "<group>"; };
+		3F1727F3277CFE8400EC0AF3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3F1727F5277D049400EC0AF3 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		3F1727F7277D04CB00EC0AF3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3F1727F9277D165600EC0AF3 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		3F1D399B277CCA5F00E75D81 /* eRestaurant-Tez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eRestaurant-Tez.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1D399E277CCA5F00E75D81 /* eRestaurant_TezApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eRestaurant_TezApp.swift; sourceTree = "<group>"; };
 		3F1D39A0277CCA5F00E75D81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3F1D39A2277CCA6000E75D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F1D39A5277CCA6000E75D81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3F1D39B2277CCF6200E75D81 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		3F58B054277E24970064A247 /* FaqInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqInformation.swift; sourceTree = "<group>"; };
+		3F58B056277F12300064A247 /* PasswordInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInformation.swift; sourceTree = "<group>"; };
+		3F58B058277F20D30064A247 /* PrivacyInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyInformation.swift; sourceTree = "<group>"; };
+		3F58B05A277F23E50064A247 /* HelpdeskInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpdeskInformation.swift; sourceTree = "<group>"; };
+		3F58B05C277F24F80064A247 /* AboutUsInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsInformation.swift; sourceTree = "<group>"; };
+		3F58B05E277F30770064A247 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		3F58B062277F37A50064A247 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		3FF98E7D277D9FA7003935A4 /* PersonelInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonelInformation.swift; sourceTree = "<group>"; };
+		3FF98E7F277DA2B2003935A4 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
+		3FF98E81277DAB24003935A4 /* AddressInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInformation.swift; sourceTree = "<group>"; };
+		3FF98E83277DB142003935A4 /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1727F2277CFE7900EC0AF3 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				3F1727F3277CFE8400EC0AF3 /* HomeView.swift */,
+				3F1727F9277D165600EC0AF3 /* PersonView.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
 		3F1D3992277CCA5F00E75D81 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +113,13 @@
 		3F1D399D277CCA5F00E75D81 /* eRestaurant-Tez */ = {
 			isa = PBXGroup;
 			children = (
-				3F1D399E277CCA5F00E75D81 /* eRestaurant_TezApp.swift */,
-				3F1D39A0277CCA5F00E75D81 /* ContentView.swift */,
+				3F1727E1277CD1CA00EC0AF3 /* Info.plist */,
+				3F1D39B4277CD04700E75D81 /* Fonts */,
+				3F1D39B0277CCE7300E75D81 /* App */,
+				3F1D39AE277CCE3300E75D81 /* Webservice */,
+				3F1D39AC277CCE2400E75D81 /* Model */,
+				3F1D39AD277CCE2A00E75D81 /* ViewModel */,
+				3F1D39AF277CCE3D00E75D81 /* View */,
 				3F1D39A2277CCA6000E75D81 /* Assets.xcassets */,
 				3F1D39A4277CCA6000E75D81 /* Preview Content */,
 			);
@@ -65,6 +132,91 @@
 				3F1D39A5277CCA6000E75D81 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3F1D39AC277CCE2400E75D81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F1727E2277CD9C900EC0AF3 /* AuthModel.swift */,
+				3F1727F5277D049400EC0AF3 /* ProductModel.swift */,
+				3FF98E83277DB142003935A4 /* PersonModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F1D39AD277CCE2A00E75D81 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F1727E4277CD9D300EC0AF3 /* AuthViewModel.swift */,
+				3F1727EC277CF20600EC0AF3 /* MainViewModel.swift */,
+				3F1727F7277D04CB00EC0AF3 /* HomeViewModel.swift */,
+				3FF98E7F277DA2B2003935A4 /* PersonViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3F1D39AE277CCE3300E75D81 /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				3F58B05E277F30770064A247 /* Webservice.swift */,
+			);
+			path = Webservice;
+			sourceTree = "<group>";
+		};
+		3F1D39AF277CCE3D00E75D81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FF98E7C277D9F93003935A4 /* Person */,
+				3F1727F2277CFE7900EC0AF3 /* TabView */,
+				3F1D39B1277CCEC900E75D81 /* HelperView */,
+				3F1D39A0277CCA5F00E75D81 /* ContentView.swift */,
+				3F1727E6277CDAAB00EC0AF3 /* LoginView.swift */,
+				3F1727E8277CED6300EC0AF3 /* RegisterView.swift */,
+				3F1727EA277CF1FD00EC0AF3 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F1D39B0277CCE7300E75D81 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3F58B062277F37A50064A247 /* WelcomeView.swift */,
+				3F1D399E277CCA5F00E75D81 /* eRestaurant_TezApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3F1D39B1277CCEC900E75D81 /* HelperView */ = {
+			isa = PBXGroup;
+			children = (
+				3F1D39B2277CCF6200E75D81 /* CustomCorners.swift */,
+				3F1727F0277CFA9B00EC0AF3 /* CustomCurveShape.swift */,
+			);
+			path = HelperView;
+			sourceTree = "<group>";
+		};
+		3F1D39B4277CD04700E75D81 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3F1727DC277CD19C00EC0AF3 /* Poppins-Bold.ttf */,
+				3F1727DD277CD19C00EC0AF3 /* Poppins-Regular.ttf */,
+				3F1727DB277CD19C00EC0AF3 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3FF98E7C277D9F93003935A4 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				3FF98E7D277D9FA7003935A4 /* PersonelInformation.swift */,
+				3FF98E81277DAB24003935A4 /* AddressInformation.swift */,
+				3F58B054277E24970064A247 /* FaqInformation.swift */,
+				3F58B056277F12300064A247 /* PasswordInformation.swift */,
+				3F58B058277F20D30064A247 /* PrivacyInformation.swift */,
+				3F58B05A277F23E50064A247 /* HelpdeskInformation.swift */,
+				3F58B05C277F24F80064A247 /* AboutUsInformation.swift */,
+			);
+			path = Person;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +261,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"tr-TR",
 			);
 			mainGroup = 3F1D3992277CCA5F00E75D81;
 			productRefGroup = 3F1D399C277CCA5F00E75D81 /* Products */;
@@ -125,8 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1727DE277CD19C00EC0AF3 /* Poppins-SemiBold.ttf in Resources */,
 				3F1D39A6277CCA6000E75D81 /* Preview Assets.xcassets in Resources */,
 				3F1D39A3277CCA6000E75D81 /* Assets.xcassets in Resources */,
+				3F1727DF277CD19C00EC0AF3 /* Poppins-Bold.ttf in Resources */,
+				3F1727E0277CD19C00EC0AF3 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +293,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1727E7277CDAAB00EC0AF3 /* LoginView.swift in Sources */,
+				3F58B057277F12300064A247 /* PasswordInformation.swift in Sources */,
+				3F58B05F277F30770064A247 /* Webservice.swift in Sources */,
+				3F58B05D277F24F80064A247 /* AboutUsInformation.swift in Sources */,
+				3F58B05B277F23E50064A247 /* HelpdeskInformation.swift in Sources */,
+				3F1727EB277CF1FD00EC0AF3 /* MainView.swift in Sources */,
+				3F1727F1277CFA9B00EC0AF3 /* CustomCurveShape.swift in Sources */,
+				3FF98E80277DA2B2003935A4 /* PersonViewModel.swift in Sources */,
+				3F1727E5277CD9D300EC0AF3 /* AuthViewModel.swift in Sources */,
 				3F1D39A1277CCA5F00E75D81 /* ContentView.swift in Sources */,
+				3FF98E84277DB142003935A4 /* PersonModel.swift in Sources */,
+				3FF98E82277DAB24003935A4 /* AddressInformation.swift in Sources */,
+				3F1727F4277CFE8400EC0AF3 /* HomeView.swift in Sources */,
+				3F1727E9277CED6300EC0AF3 /* RegisterView.swift in Sources */,
+				3F58B055277E24970064A247 /* FaqInformation.swift in Sources */,
+				3F1727F6277D049400EC0AF3 /* ProductModel.swift in Sources */,
+				3F1727F8277D04CB00EC0AF3 /* HomeViewModel.swift in Sources */,
+				3F1727E3277CD9C900EC0AF3 /* AuthModel.swift in Sources */,
+				3F1D39B3277CCF6200E75D81 /* CustomCorners.swift in Sources */,
+				3FF98E7E277D9FA7003935A4 /* PersonelInformation.swift in Sources */,
+				3F58B063277F37A50064A247 /* WelcomeView.swift in Sources */,
 				3F1D399F277CCA5F00E75D81 /* eRestaurant_TezApp.swift in Sources */,
+				3F1727ED277CF20600EC0AF3 /* MainViewModel.swift in Sources */,
+				3F1727FA277D165600EC0AF3 /* PersonView.swift in Sources */,
+				3F58B059277F20D30064A247 /* PrivacyInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,9 +451,11 @@
 				DEVELOPMENT_TEAM = 57W84AD39K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "eRestaurant-Tez/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -302,9 +483,11 @@
 				DEVELOPMENT_TEAM = 57W84AD39K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "eRestaurant-Tez/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
