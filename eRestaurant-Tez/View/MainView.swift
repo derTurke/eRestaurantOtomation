@@ -18,12 +18,16 @@ struct MainView: View {
         TabView(selection: $mainVM.currentTab) {
             HomeView()
                 .tag(Tab.Home)
-            Text("Heart")
-                .tag(Tab.Heart)
-            Text("ClipBoard")
+            BasketView()
+                .tag(Tab.Basket)
+            
+            CategoryView()
                 .tag(Tab.ClipBoard)
+            
             PersonView()
                 .tag(Tab.Person)
+            OrderView()
+                .tag(Tab.Order)
             
         }
         .overlay(
@@ -33,9 +37,11 @@ struct MainView: View {
                     .offset(x: -10)
                 
                 Button{
-                    
+                    withAnimation{
+                        mainVM.currentTab = .Basket
+                    }
                 } label: {
-                    Image(systemName: "qrcode")
+                    Image("basket")
                         .resizable()
                         .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
@@ -48,7 +54,7 @@ struct MainView: View {
                         .shadow(color: Color.black.opacity(0.04), radius: 5, x: -5, y: -5)
                 }
                 .offset(y : -30)
-                TabButton(Tab: .Heart)
+                TabButton(Tab: .Order)
                     .offset(x: +10)
                 TabButton(Tab: .Person)
             }
@@ -60,6 +66,7 @@ struct MainView: View {
                 )
             ,alignment: .bottom
         )
+        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: -5)
     }
     @ViewBuilder
     func TabButton(Tab: Tab)-> some View{

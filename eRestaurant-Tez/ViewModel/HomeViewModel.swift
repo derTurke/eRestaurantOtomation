@@ -8,12 +8,6 @@
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
-    @Published var products : [ProductModel] = [
-        ProductModel(title: "Et", subtitle: "Et", description: "", price: "120₺", productImage: "home", quantity: 1),
-        ProductModel(title: "Et", subtitle: "Et", description: "", price: "120₺", productImage: "home", quantity: 1),
-        ProductModel(title: "Et", subtitle: "Et", description: "", price: "120₺", productImage: "home", quantity: 1),
-        ProductModel(title: "Et", subtitle: "Et", description: "", price: "120₺", productImage: "home", quantity: 1),
-        ProductModel(title: "Et", subtitle: "Et", description: "", price: "120₺", productImage: "home", quantity: 1),
-    ]
+    
 }
 

@@ -7,6 +7,357 @@
 
 import Foundation
 class Webservice {
+    //Category Model
+    func getCategories(completion: @escaping (Result<[CategoryModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getCategories") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+            
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let categoriesResponse = try? JSONDecoder().decode([CategoryModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(categoriesResponse))
+            
+        }.resume()
+    }
+    
+    func getProducts(categoryId: Int, completion: @escaping (Result<[ProductModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getProducts") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
+        let body : [String : Int] = ["category_id": categoryId]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let productsResponse = try? JSONDecoder().decode([ProductModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(productsResponse))
+            
+        }.resume()
+    }
+    
+    func getProduct(productId: Int, completion: @escaping (Result<[ProductModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getProduct") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
+        let body : [String : Int] = ["product_id": productId]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let productsResponse = try? JSONDecoder().decode([ProductModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(productsResponse))
+            
+        }.resume()
+    }
+    
+    func addBasket(product_id: Double, price: Double, piece: Double, total: Double,completion: @escaping (Result<String,DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/addBasket") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        
+        let body : [String : Double] = ["product_id": product_id, "price": price, "piece": piece, "total": total]
+        
+        
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let addBasket = try? JSONDecoder().decode(String.self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(addBasket))
+            
+        }.resume()
+        
+    }
+    func getBasket(completion: @escaping (Result<[BasketModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getBasket") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let basketResponse = try? JSONDecoder().decode([BasketModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(basketResponse))
+            
+        }.resume()
+        
+    }
+    func getBasketSummary(completion: @escaping (Result<Double,DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getBasketSummary") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let basketResponse = try? JSONDecoder().decode(Double.self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(basketResponse))
+            
+        }.resume()
+        
+    }
+    func getTables(completion: @escaping (Result<[TableModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getTables") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let tableResponse = try? JSONDecoder().decode([TableModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(tableResponse))
+            
+        }.resume()
+        
+    }
+    
+    func addOrder(address_id: String, table_id: String, total: String, note: String, tableConfirm: Bool, completion: @escaping (Result<String,DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/addOrder") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        
+        var body : [String: String]
+        
+        if (tableConfirm){
+           body = ["table_id": table_id, "total": total, "note": note]
+        } else {
+           body = ["address_id": address_id,"total": total, "note": note]
+        }
+        
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try? JSONEncoder().encode(body);
+        
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let addBasket = try? JSONDecoder().decode(String.self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(addBasket))
+            
+        }.resume()
+        
+    }
+    
+
+    func deleteBasket(id: Int, completion: @escaping (Result<[BasketModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/deleteBasket") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        
+        let body : [String : Int] = ["id": id]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let basketResponse = try? JSONDecoder().decode([BasketModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(basketResponse))
+            
+        }.resume()
+        
+    }
+    
+    
+    //Order Model
+    func getOrders(completion: @escaping (Result<[OrderModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getOrders") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let orderResponse = try? JSONDecoder().decode([OrderModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(orderResponse))
+            
+        }.resume()
+    }
+    
+    func getOrderProducts(order_id:Int, completion: @escaping (Result<[OrderDetailProductModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getOrderProductDetail") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        let token_accept = "Bearer \(token!)"
+        
+        let body : [String : Int] = ["order_id": order_id]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let orderProductResponse = try? JSONDecoder().decode([OrderDetailProductModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(orderProductResponse))
+            
+        }.resume()
+    }
+    
+    
+    
+    
     
     // Auth Model
     func register(name: String, email: String, password: String, completion: @escaping (Result<AuthModel,DownloaderError>) -> Void){
@@ -455,6 +806,7 @@ class Webservice {
         }.resume()
         
     }
+    
     
     
 }

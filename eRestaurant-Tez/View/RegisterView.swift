@@ -96,11 +96,13 @@ struct RegisterView: View {
             
             if title.contains("Şifre") && !showPassword.wrappedValue{
                 SecureField(hint, text: value)
+                    .colorScheme(.light)
                     .padding(.top,2)
                     .font(.custom(customFont, size: 16))
                     .foregroundColor(Color.black)
             } else {
                 TextField(hint, text: value)
+                    .colorScheme(.light)
                     .padding(.top,2)
                     .font(.custom(customFont, size: 16))
                     .foregroundColor(Color.black)

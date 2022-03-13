@@ -128,7 +128,7 @@ struct AboutUsInformation: View {
                                 .frame(width: 50, height: 50)
                         }
                         Spacer()
-                        Link(destination: URL(string: "https://www.linkedin.com/in/g%C3%BCrhan-yuvarlak-94b422203")!){
+                        Link(destination: URL(string: "https://www.linkedin.com/in/gurhanyuvarlak/")!){
                             Image("linkedin")
                                 .resizable()
                                 .frame(width: 50, height: 50)

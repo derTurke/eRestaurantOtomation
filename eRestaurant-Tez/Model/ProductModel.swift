@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ProductModel: Identifiable, Hashable {
-    var id = UUID().uuidString
-    var title : String
-    var subtitle : String
-    var description : String = ""
-    var price : String
-    var productImage : String = ""
-    var quantity: Int = 1
+struct ProductModel: Codable {
+    var id : Int
+    var category_id : Int
+    var name : String
+    var image : String
+    var detail : String?
+    var price : Double
+    var contents: String?
 }
 

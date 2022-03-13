@@ -43,6 +43,7 @@ struct AddressInformation: View {
                 if personVM.addresses.isEmpty {
                     Text("Adres kaydı yok")
                         .font(.custom(customFont, size: 16))
+                        .foregroundColor(Color("Secondary"))
                         .frame(maxWidth: .infinity,alignment: .leading)
                 } else {
                     ForEach(personVM.addresses, id:\.id){address in

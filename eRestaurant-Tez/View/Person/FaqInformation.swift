@@ -52,6 +52,7 @@ struct FaqInformation: View {
                     )
                     .font(.custom(customFont, size: 16))
                     .cornerRadius(12)
+                    .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 0)
                     
                 }
                 
@@ -60,7 +61,7 @@ struct FaqInformation: View {
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("HomeBG").ignoresSafeArea())
+        .background(Color.white.ignoresSafeArea())
         .onAppear{
             DispatchQueue.main.async {
                 personVM.getFAQ()

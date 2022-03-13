@@ -33,20 +33,21 @@ struct PersonView: View {
                     }
                     
                     VStack{
-                        DropDown(isActive: $personVM.showOrderInformation, title: "Siparişlerim", icon: "person")
-                        
-                        
+                    
                         DropDown(isActive: $personVM.showAddressInformation, title: "Teslimat Adreslerim", icon: "mappin.and.ellipse")
                         if personVM.showAddressInformation{
                             AddressInformation()
+                                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 10)
                         }
                         DropDown(isActive: $personVM.showPersonelInformation, title: "Kişisel Bilgiler", icon: "person")
                         if personVM.showPersonelInformation{
                             PersonelInformation()
+                                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 10)
                         }
                         DropDown(isActive: $personVM.showPasswordInformation, title: "Şifre Değişikliği", icon: "lock")
                         if personVM.showPasswordInformation{
                             PasswordInformation()
+                                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 10)
                         }
                         
                         DropDown(isActive: $personVM.showFaqInformation, title: "Sık Sorulan Sorular", icon: "questionmark")
@@ -62,10 +63,12 @@ struct PersonView: View {
                         DropDown(isActive: $personVM.showAboutUsInformation, title: "Hakkımızda", icon: "person.3")
                             .fullScreenCover(isPresented: $personVM.showAboutUsInformation, onDismiss: {}) {
                                 AboutUsInformation()
+                                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 10)
                             }
                         DropDown(isActive: $personVM.showHelpdesk, title: "Yardım Masası", icon: "headphones")
                         if personVM.showHelpdesk{
                             HelpdeskInformation()
+                                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 10)
                                 .padding(.bottom,70)
                         }
                             
@@ -83,7 +86,7 @@ struct PersonView: View {
             .navigationTitle("Profilim")
             .navigationBarHidden(true)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color("HomeBG").ignoresSafeArea())
+            .background(Color.white.ignoresSafeArea())
         }
         
     }

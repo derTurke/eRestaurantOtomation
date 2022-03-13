@@ -13,7 +13,8 @@ class MainViewModel: ObservableObject {
 
 enum Tab: String{
     case Home = "home"
-    case Heart = "heart"
+    case Basket = "basket"
+    case Order = "order"
     case ClipBoard = "clipboard"
     case Person = "person"
 }
