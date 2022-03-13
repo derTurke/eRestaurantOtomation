@@ -13,6 +13,22 @@ struct OrderModel: Codable {
     var total : Double
 }
 
+struct OrderDetailModel : Codable {
+    var id : Int
+    var user_name : String?
+    var header : String?
+    var address : String?
+    var building_no : String?
+    var floor : String?
+    var apartment_no : String?
+    var specification : String?
+    var phone : String?
+    var total : Double?
+    var note : String?
+    var table_name : Int?
+    var created_at : String?
+}
+
 struct OrderDetailProductModel: Codable {
     var id : Int
     var image : String

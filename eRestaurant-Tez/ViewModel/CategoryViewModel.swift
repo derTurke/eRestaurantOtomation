@@ -35,7 +35,7 @@ class CategoryViewModel: ObservableObject {
     
     //Get Basket
     @Published var basket : [BasketModel] = []
-    
+    @Published var basketProductId : Int = 0
     //Order Submit
     
     

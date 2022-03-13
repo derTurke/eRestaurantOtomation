@@ -51,7 +51,7 @@ struct OrderDetail: View {
                             .fontWeight(.semibold)
                             .foregroundColor(Color.black)
                         Spacer()
-                        Text(String(format: "%.02f ₺", 0))
+                        Text(String(format: "%.02f ₺", orderVM.total))
                             .font(.custom(customFont, size: 16))
                             .fontWeight(.semibold)
                             .foregroundColor(Color("Primary"))
@@ -73,61 +73,52 @@ struct OrderDetail: View {
                             Divider().foregroundColor(Color.black.opacity(0.2))
                             Text("Sipariş Tarihi")
                                 .fontWeight(.semibold)
-                            Text(formatStringDate(date:""))
+                            Text(formatStringDate(date:orderVM.created_at))
                             Divider().foregroundColor(Color.black.opacity(0.2))
                             Text("Sipariş Notu")
                                 .fontWeight(.semibold)
-                            Text("Not")
+                            Text(orderVM.note)
                             Divider().foregroundColor(Color.black.opacity(0.2))
                             
                         }
-                        VStack(alignment: .leading){
-                            HStack{
-                                VStack{
-                                    Text("İlgili Kişi")
-                                        .fontWeight(.semibold)
-                                        .frame(maxWidth:.infinity,alignment: .leading)
-                                    Text("Gürhan")
-                                        .frame(maxWidth:.infinity,alignment: .leading)
+                        if(orderVM.address != ""){
+                            VStack(alignment: .leading){
+                                HStack{
+                                    VStack{
+                                        Text("İlgili Kişi")
+                                            .fontWeight(.semibold)
+                                            .frame(maxWidth:.infinity,alignment: .leading)
+                                        Text(orderVM.user_name)
+                                            .frame(maxWidth:.infinity,alignment: .leading)
+                                    }
+                                    Divider().foregroundColor(Color.black.opacity(0.2))
+                                    VStack(alignment: .leading){
+                                        Text("İrtibat Telefon")
+                                            .fontWeight(.semibold)
+                                            .frame(maxWidth:.infinity,alignment: .leading)
+                                        Text(orderVM.phone)
+                                            .frame(maxWidth:.infinity,alignment: .leading)
+                                    }
                                 }
                                 Divider().foregroundColor(Color.black.opacity(0.2))
-                                VStack(alignment: .leading){
-                                    Text("İrtibat Telefon")
-                                        .fontWeight(.semibold)
-                                        .frame(maxWidth:.infinity,alignment: .leading)
-                                    Text("Gürhan")
-                                        .frame(maxWidth:.infinity,alignment: .leading)
-                                }
-                            }
-                            Divider().foregroundColor(Color.black.opacity(0.2))
-                            Text("Adres")
-                                .fontWeight(.semibold)
-                            Text("Adres")
-                            Divider().foregroundColor(Color.black.opacity(0.2))
-                        }
-                        VStack(alignment: .leading){
-                            HStack{
-                                VStack{
-                                    Text("Şehir")
-                                        .fontWeight(.semibold)
-                                        .frame(maxWidth:.infinity,alignment: .leading)
-                                    Text("Şehir")
-                                        .frame(maxWidth:.infinity,alignment: .leading)
-                                }
+                                Text("Adres")
+                                    .fontWeight(.semibold)
+                                Text(orderVM.address)
                                 Divider().foregroundColor(Color.black.opacity(0.2))
-                                VStack(alignment: .leading){
-                                    Text("Semt")
-                                        .fontWeight(.semibold)
-                                        .frame(maxWidth:.infinity,alignment: .leading)
-                                    Text("Semt")
-                                        .frame(maxWidth:.infinity,alignment: .leading)
-                                }
+                                Text("Adres Tarifi")
+                                    .fontWeight(.semibold)
+                                Text(orderVM.specification)
                             }
-                            Divider().foregroundColor(Color.black.opacity(0.2))
-                            Text("Adres Tarifi")
-                                .fontWeight(.semibold)
-                            Text("Adres")
+                        } else {
+                            VStack(alignment: .leading){
+                                Text("Masa Numarası")
+                                    .fontWeight(.semibold)
+                                    .frame(maxWidth:.infinity,alignment: .leading)
+                                Text("\(orderVM.table_name)")
+                                    .frame(maxWidth:.infinity,alignment: .leading)
+                            }
                         }
+                        
                         
                         
                     }
@@ -149,6 +140,7 @@ struct OrderDetail: View {
             .onAppear{
                 DispatchQueue.main.async {
                     orderVM.getOrderProducts(order_id: id)
+                    orderVM.getOrderDetail(order_id: id)
                 }
                 
             }

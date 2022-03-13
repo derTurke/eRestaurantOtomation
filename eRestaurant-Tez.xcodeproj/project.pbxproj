@@ -48,6 +48,7 @@
 		3FB02DAC27DD327B00BFAC6F /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02DAB27DD327B00BFAC6F /* OrderView.swift */; };
 		3FB02DAE27DD467400BFAC6F /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02DAD27DD467400BFAC6F /* OrderModel.swift */; };
 		3FB02DB027DD46C800BFAC6F /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB02DAF27DD46C800BFAC6F /* OrderViewModel.swift */; };
+		3FC4538A27DE4AD400FFE1CE /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC4538927DE4AD400FFE1CE /* HomeModel.swift */; };
 		3FDAF03627A409890031A466 /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDAF03527A409890031A466 /* ProductDetail.swift */; };
 		3FF98E7E277D9FA7003935A4 /* PersonelInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF98E7D277D9FA7003935A4 /* PersonelInformation.swift */; };
 		3FF98E80277DA2B2003935A4 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF98E7F277DA2B2003935A4 /* PersonViewModel.swift */; };
@@ -99,6 +100,7 @@
 		3FB02DAB27DD327B00BFAC6F /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		3FB02DAD27DD467400BFAC6F /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		3FB02DAF27DD46C800BFAC6F /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		3FC4538927DE4AD400FFE1CE /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		3FDAF03527A409890031A466 /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
 		3FF98E7D277D9FA7003935A4 /* PersonelInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonelInformation.swift; sourceTree = "<group>"; };
 		3FF98E7F277DA2B2003935A4 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				3F81186B27D4F551003D1EBE /* BasketModel.swift */,
 				3FB02DA627DCFEC600BFAC6F /* TableModel.swift */,
 				3FB02DAD27DD467400BFAC6F /* OrderModel.swift */,
+				3FC4538927DE4AD400FFE1CE /* HomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				3F29DD4B278F17240099021A /* CategoryDetail.swift in Sources */,
 				3F1727ED277CF20600EC0AF3 /* MainViewModel.swift in Sources */,
 				3F1727FA277D165600EC0AF3 /* PersonView.swift in Sources */,
+				3FC4538A27DE4AD400FFE1CE /* HomeModel.swift in Sources */,
 				3FAC46BC2788CEAF0006CEA8 /* CategoryViewModel.swift in Sources */,
 				3F81187327D544D7003D1EBE /* BasketDetail.swift in Sources */,
 				3F58B059277F20D30064A247 /* PrivacyInformation.swift in Sources */,

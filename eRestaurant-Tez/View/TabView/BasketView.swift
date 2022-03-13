@@ -86,6 +86,9 @@ struct BasketView: View {
             Spacer()
             Button{
                 showAlert.toggle()
+                DispatchQueue.main.async {
+                    categoryVM.basketProductId = product.id
+                }
             
             } label: {
                 Image(systemName: "trash")
@@ -99,7 +102,7 @@ struct BasketView: View {
                 withAnimation{
                     SwiftUI.Alert(title: Text("eRestaurant"), message: Text("Silmek istediğinize emin misiniz?"), primaryButton: Alert.Button.destructive(Text("Hayır")),secondaryButton: Alert.Button.default(Text("Evet"), action: {
                         DispatchQueue.main.async {
-                            categoryVM.deleteBasket(basket_product_id: product.id)
+                            categoryVM.deleteBasket(basket_product_id: categoryVM.basketProductId)
                         }
                     }))
                 }

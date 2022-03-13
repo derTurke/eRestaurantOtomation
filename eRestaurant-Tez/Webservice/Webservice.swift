@@ -116,7 +116,10 @@ class Webservice {
         
         
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -145,7 +148,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -172,7 +178,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -199,7 +208,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -236,7 +248,10 @@ class Webservice {
         }
         
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -268,7 +283,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         let body : [String : Int] = ["id": id]
         
@@ -302,7 +320,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -330,7 +351,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         let body : [String : Int] = ["order_id": order_id]
         
@@ -351,6 +375,73 @@ class Webservice {
                 return
             }
             completion(.success(orderProductResponse))
+            
+        }.resume()
+    }
+    
+    func getOrderDetail(order_id:Int, completion: @escaping (Result<OrderDetailModel,DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getOrderDetail") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
+        
+        let body : [String : Int] = ["order_id": order_id]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let orderDetailResponse = try? JSONDecoder().decode(OrderDetailModel.self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(orderDetailResponse))
+            
+        }.resume()
+    }
+    
+    //Home Model
+    
+    func getHomeProducts(completion: @escaping (Result<[HomeProductModel],DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/getLastOrder") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let token = UserDefaults.standard.value(forKey: "token")
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token_accept, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let homeProductsResponse = try? JSONDecoder().decode([HomeProductModel].self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(homeProductsResponse))
             
         }.resume()
     }
@@ -422,7 +513,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -449,7 +543,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -484,7 +581,10 @@ class Webservice {
         
         
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -518,7 +618,10 @@ class Webservice {
         
         
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -547,7 +650,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -574,7 +680,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         let body : [String : Int] = ["id": id]
         
@@ -605,7 +714,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         let body : [String : Int] = ["id": id]
         
@@ -637,7 +749,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         let body : [String : String] = ["id" : "\(id)","header": header, "address": address, "building_no": building_no, "floor": floor, "apartment_no": apartment_no, "specification": specification, "phone": phone]
         
@@ -668,7 +783,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         let body : [String : String] = ["password" : password, "newPassword" : newPassword, "reNewPassword" : reNewPassword]
         
@@ -699,7 +817,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -727,7 +848,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -755,7 +879,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -782,7 +909,10 @@ class Webservice {
             return
         }
         let token = UserDefaults.standard.value(forKey: "token")
-        let token_accept = "Bearer \(token!)"
+        var token_accept = "Bearer"
+        if token != nil{
+            token_accept = "Bearer \(token!)"
+        }
         
         let body : [String : String] = ["subject" : subject, "message" : message]
         
