@@ -10,6 +10,7 @@ import SwiftUI
 struct BasketDetail: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var basketVM : BasketViewModel = BasketViewModel()
+    @StateObject var categoryVM : CategoryViewModel = CategoryViewModel()
     
     init(){
         UISwitch.appearance().onTintColor = .red
@@ -215,12 +216,30 @@ struct BasketDetail: View {
                         .alert(isPresented: $basketVM.showAlert){
                             withAnimation{
                                 SwiftUI.Alert(title: Text("eRestaurant"), message: Text(basketVM.message), dismissButton: basketVM.message == "success" ? SwiftUI.Alert.Button.default(Text("Tamam"), action: {
+                                    
+                                    
                                     DispatchQueue.main.async {
-                                        basketVM.isActiveLink = true
+                                        withAnimation{
+                                            categoryVM.getBasket()
+                                            categoryVM.basket = []
+                                            presentationMode.wrappedValue.dismiss()
+                                        }
+                                       
                                     }
-
-                                }) :  SwiftUI.Alert.Button.cancel(Text("Tamam")))
-                                //SwiftUI.Alert(title: Text("eRestaurant"), message: Text(basketVM.message), dismissButton: SwiftUI.Alert.Button.cancel(Text("Tamam")))
+                                    
+                                }) : SwiftUI.Alert.Button.default(Text("Tamam"), action: {
+                                    
+                                    
+                                    DispatchQueue.main.async {
+                                        withAnimation{
+                                            categoryVM.getBasket()
+                                            categoryVM.basket = []
+                                            presentationMode.wrappedValue.dismiss()
+                                        }
+                                    }
+                                    
+                                    
+                                }))
                             }
                         }
                     }

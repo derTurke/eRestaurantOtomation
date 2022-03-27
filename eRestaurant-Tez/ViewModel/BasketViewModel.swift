@@ -26,6 +26,7 @@ class BasketViewModel: ObservableObject {
     
     
     @Published var isActiveLink : Bool = false
+    @Published var isActiveFullScreen : Bool = false
     
     func getBasketSummary(){
         Webservice().getBasketSummary { result in

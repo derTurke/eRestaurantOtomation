@@ -14,8 +14,8 @@
             filePath = "eRestaurant-Tez/Webservice/Webservice.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "808"
-            endingLineNumber = "808"
+            startingLineNumber = "860"
+            endingLineNumber = "860"
             landmarkName = "editPassword(password:newPassword:reNewPassword:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "eRestaurant-Tez/Webservice/Webservice.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "810"
-            endingLineNumber = "810"
+            startingLineNumber = "862"
+            endingLineNumber = "862"
             landmarkName = "editPassword(password:newPassword:reNewPassword:completion:)"
             landmarkType = "7">
          </BreakpointContent>

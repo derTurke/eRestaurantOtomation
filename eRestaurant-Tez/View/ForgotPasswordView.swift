@@ -1,13 +1,13 @@
 //
-//  LoginView.swift
+//  ForgotPasswordView.swift
 //  eRestaurant-Tez
 //
-//  Created by GÜRHAN YUVARLAK on 29.12.2021.
+//  Created by GÜRHAN YUVARLAK on 27.03.2022.
 //
 
 import SwiftUI
 
-struct LoginView: View {
+struct ForgotPasswordView: View {
     @StateObject var authVM : AuthViewModel = AuthViewModel()
     @State var showAlert : Bool = false
     var body: some View {
@@ -15,16 +15,15 @@ struct LoginView: View {
             VStack{
                 Image("login")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
                     .frame(maxWidth:.infinity, alignment: .leading)
-                    .frame(height: getRect().height / 2.75)
+                    .frame(height: getRect().height / 2.25)
                     .padding(20)
                         
                 ScrollView(.vertical,showsIndicators: false){
                     VStack(spacing:15){
                         HStack{
                             NavigationLink {
-                                ContentView()
+                                LoginView()
                                     .navigationBarHidden(true)
                             } label: {
                                 Image(systemName: "arrow.left")
@@ -34,7 +33,7 @@ struct LoginView: View {
                             }
                             
 
-                            Text("Hesabına Giriş Yap")
+                            Text("Şifre mi Unuttum?")
                                 .font(.custom(customFont, size: 24))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color.black)
@@ -42,38 +41,50 @@ struct LoginView: View {
                         .frame(maxWidth:.infinity,alignment: .leading)
                         .padding(.bottom,5)
                         
-                        CustomTextField(icon: "envelope", title: "E-posta Adresi", hint: "E-posta adresinizi giriniz", value: $authVM.email, showPassword: .constant(false))
-                        CustomTextField(icon: "lock", title: "Şifre", hint: "Şifrenizi giriniz", value: $authVM.password, showPassword: $authVM.showPassword)
-                        
-                        NavigationLink{
-                            ForgotPasswordView()
-                                .navigationBarHidden(true)
-                        } label: {
-                            Text("Şifremi Unuttum")
-                                .font(.custom(customFont, size: 16))
-                                .underline()
-                                .foregroundColor(Color("Secondary"))
-                        }
-                        .padding(.top,15)
-                        .frame(maxWidth: .infinity,alignment: .leading)
-                        
-                        Button{
-                            DispatchQueue.main.async {
-                                authVM.Login()
+                        if authVM.state == 1{
+                            CustomTextField(icon: "envelope", title: "E-posta Adresi", hint: "E-posta adresinizi giriniz", value: $authVM.email, showPassword: .constant(false))
+                            
+                            Button{
+                                DispatchQueue.main.async {
+                                    authVM.ForgotPassword()
+                                }
+                            } label: {
+                                Text("Gönder")
+                                    .font(.custom(customFont, size: 17))
+                                    .padding(.vertical)
+                                    .frame(maxWidth: .infinity)
+                                    .foregroundColor(Color.white)
+                                    .background(Color("Primary"))
+                                    .cornerRadius(12)
                             }
-                        } label: {
-                            Text("Giriş Yap")
-                                .font(.custom(customFont, size: 17))
-                                .padding(.vertical)
-                                .frame(maxWidth: .infinity)
-                                .foregroundColor(Color.white)
-                                .background(Color("Primary"))
-                                .cornerRadius(12)
-                        }
-                        .padding(.top,15)
-                        .alert(isPresented: $authVM.showAlert){
-                            withAnimation{
-                                SwiftUI.Alert(title: Text("eRestaurant"), message: Text(authVM.message), dismissButton: SwiftUI.Alert.Button.cancel(Text("Tamam")))
+                            .padding(.top,15)
+                            .alert(isPresented: $authVM.showAlert){
+                                withAnimation{
+                                    SwiftUI.Alert(title: Text("eRestaurant"), message: Text(authVM.message), dismissButton: SwiftUI.Alert.Button.cancel(Text("Tamam")))
+                                }
+                            }
+                        } else if authVM.state == 2 {
+                            CustomTextField(icon: "lock", title: "Şifre", hint: "Şifrenizi giriniz", value: $authVM.password, showPassword: $authVM.showPassword)
+                            CustomTextField(icon: "lock", title: "Şifre (tekrar)", hint: "Şifrenizi tekrar giriniz", value: $authVM.passwordTekrar, showPassword: $authVM.showPasswordTekrar)
+                            
+                            Button{
+                                DispatchQueue.main.async {
+                                    authVM.ForgotPassword2()
+                                }
+                            } label: {
+                                Text("Onayla")
+                                    .font(.custom(customFont, size: 17))
+                                    .padding(.vertical)
+                                    .frame(maxWidth: .infinity)
+                                    .foregroundColor(Color.white)
+                                    .background(Color("Primary"))
+                                    .cornerRadius(12)
+                            }
+                            .padding(.top,15)
+                            .alert(isPresented: $authVM.showAlert){
+                                withAnimation{
+                                    SwiftUI.Alert(title: Text("eRestaurant"), message: Text(authVM.message), dismissButton: SwiftUI.Alert.Button.cancel(Text("Tamam")))
+                                }
                             }
                         }
                         
@@ -146,9 +157,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct ForgotPasswordView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
-            .previewDevice("iPhone 12")
+        ForgotPasswordView()
     }
 }

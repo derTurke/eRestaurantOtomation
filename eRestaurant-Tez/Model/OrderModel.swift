@@ -11,6 +11,7 @@ struct OrderModel: Codable {
     var id : Int
     var created_at : String
     var total : Double
+    var status : Int
 }
 
 struct OrderDetailModel : Codable {
@@ -27,6 +28,7 @@ struct OrderDetailModel : Codable {
     var note : String?
     var table_name : Int?
     var created_at : String?
+    var status : Int
 }
 
 struct OrderDetailProductModel: Codable {

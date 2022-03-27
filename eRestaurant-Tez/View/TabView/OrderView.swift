@@ -54,8 +54,23 @@ struct OrderView: View {
                     .clipShape(Circle())
                     .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 0)
                 VStack(alignment: .leading){
-                    Text(formatStringDate(date:order.created_at))
+                    Text(formatStringDate(date: order.created_at))
                     Text(String(format: "%.02f ₺", order.total))
+                    if order.status == 1{
+                        Text("Onay Bekliyor")
+                            .foregroundColor(Color("Primary"))
+                    } else if order.status == 2{
+                        Text("Hazırlanıyor")
+                            .foregroundColor(Color("Primary"))
+                        
+                    } else if order.status == 3{
+                        Text("Hazırlandı")
+                            .foregroundColor(Color("Primary"))
+                        
+                    } else if order.status == 4{
+                        Text("Tamamlandı")
+                            .foregroundColor(Color("Primary"))
+                    }
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -85,9 +100,14 @@ struct OrderView_Previews: PreviewProvider {
 }
 
 func formatStringDate(date: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let newDate = dateFormatter.date(from: date)
-        dateFormatter.setLocalizedDateFormatFromTemplate("d/MM/yyyy HH:mm")
-        return dateFormatter.string(from: newDate ?? Date())
+    let dateFormatterGet = DateFormatter()
+    dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+    let dateFormatterPrint = DateFormatter()
+    dateFormatterPrint.dateFormat = "dd/MM/yyyy HH:mm"
+    if let date2 = dateFormatterGet.date(from: date) {
+        return dateFormatterPrint.string(from: date2)
+    } else {
+        return dateFormatterPrint.string(from: Date())
+    }
 }

@@ -24,6 +24,7 @@ class OrderViewModel: ObservableObject{
     @Published var note : String = ""
     @Published var table_name : Int = 0
     @Published var created_at : String = ""
+    @Published var status : Int = 0
     
     
     func getOrders(){
@@ -59,6 +60,7 @@ class OrderViewModel: ObservableObject{
                         self.total = orderDetail.total ?? 0.0
                         self.note = orderDetail.note ?? ""
                         self.created_at = orderDetail.created_at ?? ""
+                        self.status = orderDetail.status
                     }
                 case .failure(let hata):
                     print(hata)

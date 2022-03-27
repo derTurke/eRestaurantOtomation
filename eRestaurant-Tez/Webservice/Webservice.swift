@@ -506,6 +506,58 @@ class Webservice {
         
     }
     
+    func forgotPassword(email: String, completion: @escaping (Result<String,DownloaderError>)->Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/forgotPassword") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        let body : [String : String] = ["email": email]
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(body)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let forgotPasswordResponse = try? JSONDecoder().decode(String.self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(forgotPasswordResponse))
+            
+        }.resume()
+    }
+    
+    func forgotPassword2(email: String, password: String, password_again: String, completion: @escaping (Result<AuthModel,DownloaderError>) -> Void){
+        guard let url = URL(string: "http://127.0.0.1:8000/api/forgotPassword2") else {
+            completion(.failure(.yanlisUrl))
+            return
+        }
+        
+        let body : [String : String] = ["email": email, "password": password, "password_again": password_again]
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(body)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.veriGelmedi))
+                return
+            }
+            guard let loginResponse = try? JSONDecoder().decode(AuthModel.self, from: data) else {
+                completion(.failure(.veriIslenemedi))
+                return
+            }
+            completion(.success(loginResponse))
+            
+        }.resume()
+        
+    }
+    
     
     func logout(completion: @escaping (Result<AuthModel,DownloaderError>) -> Void){
         guard let url = URL(string: "http://127.0.0.1:8000/api/logout") else {

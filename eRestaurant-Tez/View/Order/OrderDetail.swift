@@ -31,6 +31,7 @@ struct OrderDetail: View {
                         .foregroundColor(Color.white)
                         .frame(maxWidth:.infinity,alignment: .leading)
                     
+                    
                 }
                 .padding()
                 .background(
@@ -38,6 +39,7 @@ struct OrderDetail: View {
                         .ignoresSafeArea()
                 )
                 ScrollView(.vertical, showsIndicators: false) {
+                    
                     VStack(alignment: .leading){
                         ForEach(orderVM.orderDetailProducts, id:\.id){ orderProduct in
                             OrderProductCard(product: orderProduct)
@@ -45,7 +47,10 @@ struct OrderDetail: View {
                         }
                     }
                     .padding(.top)
+                    
+                   
                     HStack{
+                        
                         Text("TOPLAM")
                             .font(.custom(customFont, size: 16))
                             .fontWeight(.semibold)
@@ -178,6 +183,8 @@ struct OrderDetail: View {
         .padding(.horizontal)
         
     }
+    
+
 }
 
 struct OrderDetail_Previews: PreviewProvider {
